@@ -1,7 +1,7 @@
 'use strict';
 
 /*
- * js/snowroma.js
+ * ./js/snowCruz.js 
  * Not doing any polyfills, this is a one-off, added fun little extra
  * Assumes window.requestAnimationFrame support, unprefixed CSS Transforms,
  * emoji support, and ES6 support
@@ -24,8 +24,9 @@ const period = [
   n => 5 * (Math.sin(0.75 * n) + Math.cos(0.25 * n) - 1)
 ];
 
-/* Emojis to substitute for snowflakes */
-const fun = ['❤️', '🌈', '⚡️', '💥', '✨', '💫', '🌸', '🦄', '🐯', '🐹', '🐺', '🐴', '🐵', '🐶', '🐘', '🦉', '🐒', '🐱', '🐫', '🎂', '🍿'];
+/* 30 Emojis to substitute for snowflakes */
+const fun = ['❤️', '🌈', '⚡️', '💥', '✨', '💫', '👺', '🤑', '🐯', '🐹', '🐺', '😬', '🐵', '👹',
+             '🐶', '🐘', '🦉', '🐒', '🐱', '🐫', '🎂', '🍿', '☠️', '🤬', '🤓', '👌', '👨🏻‍💻', '🐷'];
 
 /* The CSS styles for the snowflakes and container */
 const cssString = `.snowfall-container {
@@ -79,8 +80,8 @@ function resetFlake(flake) {
   /* Z-axis is in CSS px units */
   let z = flake.dataset.origZ = (Math.random() < 0.1) ? (Math.ceil(Math.random() * 100) + 25) : 0;
 
-  let life = flake.dataset.life = (Math.ceil(Math.random() * 4000) + 6000); //Milliseconds
-  flake.dataset.origLife = life; //Timestamps for flake creation
+  let life = flake.dataset.life = (Math.ceil(Math.random() * 4000) + 6000); /* Milliseconds */
+  flake.dataset.origLife = life; /* Timestamps for flake creation */
 
   flake.style.transform = `translate3d(${x}vw, ${y}vh, ${z}px)`;
   flake.style.opacity = 1.0;
@@ -113,7 +114,7 @@ function updatePositions() {
       /* Each update, change the CSS transformation */
       flake.style.transform = `translate3d(${x}vw, ${y}vh, ${z}px)`;
       if (dt >= 0.5) {
-        // Start fading out flakes 1/2 way down screen
+        /* Start fading out flakes 1/2 way down screen */
         flake.style.opacity = (1.0 - ((dt - 0.5) * 2));
       }
         curLife -= LIFE_PER_TICK;
@@ -133,17 +134,14 @@ function appendSnow() {
   let styles = document.createElement('style');
   styles.innerText = cssString;
   document.querySelector('head').appendChild(styles);
-
   /* Create the container for the snowflakes and add it to the document body */
   let field = document.createElement('div');
   field.classList.add('snowfall-container');
-
   /* Set aria-hidden and role=presentation so that screen readers don't read the emoji */
   field.setAttribute('aria-hidden', 'true');
   field.setAttribute('role', 'presentation');
   document.body.appendChild(field);
   let i = 0;
-
   /* Using an inner function and setTimeout to delay the initial snowfall */
   /* This makes it much less clumpy */
   const addFlake = () => {
@@ -151,11 +149,10 @@ function appendSnow() {
       flake.classList.add('snowflake');
       flake.setAttribute('aria-hidden', 'true');
       flake.setAttribute('role', 'presentation');
-      flake.innerText = '🐼';
+      flake.innerText = '👹';
       resetFlake(flake);
       flakes.push(flake);
       field.appendChild(flake);
-
     /* Recursive (delayed by timeout) call to add a flake until max reached */
     if (i++ <= MAX_FLAKES) {
       setTimeout(addFlake, Math.ceil(Math.random() * 300) + 100);
