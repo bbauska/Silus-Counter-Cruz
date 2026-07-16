@@ -1,5 +1,5 @@
-# Silus-counter-2
+# Silus-counter-Cruz
 Create click counter for Silus' YouTube channels; Silus Gaming World &amp; Silus Spider.
 
-Meat Romy, sister of Steak. Sister of Cruz and one other brother, Splink.
+Meet Cruz, brother of Steak, Romy &amp; Splink.
 
