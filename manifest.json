@@ -1,6 +1,9 @@
 {
- "name": "App",
- "icons": [
+  "name": "Silus Cruz Counter",  
+  "short_name": "Silus Cruz", 
+  "start_url": "index.html",
+  "display": "standalone",
+  "icons": [
   {
    "src": "\/images/android-icon-36x36.png",
    "sizes": "36x36",
