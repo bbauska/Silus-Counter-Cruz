@@ -1,6 +1,6 @@
 {
-  "name": "Silus Cruz Counter",  
-  "short_name": "Silus Cruz", 
+  "name": "Silus Says 'Cruz' 500,000 Times",  
+  "short_name": "Silus Says 'Cruz'", 
   "start_url": "index.html",
   "display": "standalone",
   "icons": [
